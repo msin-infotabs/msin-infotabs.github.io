@@ -1,14 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en-us">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiset Inoculation</title>
-</head>
-<body>
-    <h1>Multiset Inoculation</h1>
-    <p>
-        Relating to the paper for multiset inoculation, yet to be updated. 
-    </p>
-</body>
+    <title>Multi-Set Inoculation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Multi-Set Inoculation</h1>
+      <h2 class="project-tagline"> Assessing Model Robustness Across Multiple
+        Challenge Sets</h2>
+      <a href="https://arxiv.org/pdf/2311.08662.pdf" class="btn">Paper</a>
+      <a href="https://github.com/msin-infotabs/multi-set-inoculation" target="_blank" class="btn">Dataset</a>
+      <!-- <a href="https://flowchart-qa-verification.vercel.app/" target="_blank" class="btn">Verification Platform</a> -->
+      <a href="https://github.com/msin-infotabs/multi-set-inoculation" target="_blank" class="btn">Platform code</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+        <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multi-Set Inoculation: Assessing Model Robustness Across Multiple
+        Challenge Sets</h1>
+      
+        <h2>
+          <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2>
+
+      <p>Language models, given their black-box nature, often exhibit sensitivity to input perturbations, leading to trust issues due to hallucinations. To bolster trust, it’s essential to understand these models’ failure modes and devise
+        strategies to enhance their performance. In this
+        study, we propose a framework to study the
+        effect of input perturbations on language models of different scales, from pre-trained models to large language models (LLMs). We use
+        fine-tuning to train a robust model to perturbations, and we investigate whether exposure
+        to one perturbation improves or degrades the
+        model’s performance on other perturbations.
+        To address multi-perturbation robustness, we
+        suggest three distinct training strategies. We
+        also extend the framework to LLMs via a chain
+        of thought(COT) prompting with exemplars.
+        We instantiate our framework for the TabularNLI task and show that the proposed strategies
+        train the model robust to different perturbations
+        without losing accuracy on a given dataset.</p>
+
+      <h2>
+        <h2 id="user-content-dataset">
+            <a class="anchor" id="header-2" aria-hidden="true" href="#dataset">
+              <span class="octicon octicon-link"></span>
+            </a>
+            Dataset
+          </h2>
+          <p>The dataset utilized in this study is <strong>INFOTABS</strong>, a tabular-NLI dataset introduced by Gupta et al. INFOTABS encompasses a wide range of table domains, categories, and keys, showcasing diverse entity types and structures. Additionally, adversarial perturbations have been applied to INFOTABS, resulting in three test splits: <strong>α1</strong> (original test set), <strong>α2</strong> (adversarial set), and <strong>α3</strong> (zero-shot/out of domain set).</p>
+          <p><b>Perturb Challenge Datasets</b> This dataset incorporates perturbations derived from previous studies, augmented using various tools, along with manual adjustments. Each perturbation targets the hypothesis of an input sample, and challenge sets of up to 1,500 samples per perturbation type are curated. To ensure diversity, a selection process is employed when the number of pertinent samples exceeds 1,500. Perturbations are categorized into five types: Character-level (C), Negation-type (N), Numeric (M), Location (L), and Paraphrasing (S).</p>
+          <h3>Complete Dataset : MSIN-INFOTABS</h3>
+          <p>The comprehensive dataset comprises the original INFOTABS dataset and its perturbations.</p>
+          <b>Perturbation Types:</b>
+          <ul>
+            <li>C: Character-level perturbation</li>
+            <li>N: Negation-type perturbation</li>
+            <li>M: Numeric perturbation</li>
+            <li>L: Location perturbation</li>
+            <li>S: Paraphrasing as a perturbation</li>
+          </ul>
+          <h4>For BERT's Models</h4>
+          <p>Q<sub>j</sub> consists of 1,000 examples for testing, and P<sub>j</sub> consists of 500 examples for fine-tuning. The union of all challenge test sets is represented as Q, and the corresponding training set as P.</p>
+          <h4>For LLMs</h4>
+          <p>Evaluations are limited to 300 samples from Q<sub>j</sub>, denoted as R<sub>j</sub> (R<sub>j</sub> ⊂ Q<sub>j</sub>). R<sub>j</sub> comprises premise and perturbed hypothesis pairs, while R'<sub>j</sub> contains the same premise with the original unperturbed hypothesis pairs. Demonstrations for prompts are sampled from training sets P<sub>j</sub> and P'<sub>j</sub>, where P'<sub>j</sub> contains the original unperturbed hypothesis and premise pairs. Testing is conducted on R<sub>j</sub> and R'<sub>j</sub>, where R'<sub>j</sub> comprises the original unperturbed hypothesis and premise pairs for the examples in R<sub>j</sub>.</p>
+          
+          
+        <!-- <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2> -->
+      <p>Examples from our dataset can be viewed <a href="" target="_blank">here</a>.</p>
+        <h2>
+          <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Experimental Results</h2>
+          <img src="figures/sensitivitytoip.png" alt="Flow Diagram explaining strategy" style="width: 80%">
+          <blockquote>
+              <p>The overall experiments are evaluated on PLMs (Pre-trained language models) by simply evaluating on the NLI task. Robustness of PLMs is checked this way.</p> 
+            </blockquote>
+        <p>
+        <img src="figures/flowchart.png" alt="Flowchart explaining working" style="width: 80%">
+        <blockquote>
+            The generic experimental design is highlighted above. Different strategies and experimental designs are adopted for PLM and LLMs (Pre-trained language models and Large Language Models resp.)
+          </blockquote>
+        </p>
+      <p>FlowVQA poses a considerable challenge for models, evident in evaluations highlighting opportunities 
+        for improvement. The leading strategy, GPT-4 with Few-shot directive-based prompting, achieves 
+        a notable 68.42% Majority Voting score. Few-Shot Directives prove effective, showing a considerable
+        improvement in most models. Fine-tuning Qwen-VL-chat with 
+        Zero-Shot and Zero-Shot CoT strategies results in a 3% and 11% improvement, respectively, 
+        underscoring the importance of fine-tuning for addressing flowchart understanding limitations 
+        in original pretraining. The fine-tuned model surpasses all existing open-source models, 
+        emphasizing FlowVQA's potential in introducing visual logic and reasoning to MLLMs.</p>
+
+      <h2>
+        <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>People</h2>
+        <p>This project was created by <a href="https://www.linkedin.com/in/vatsal-gupta-iitg/">Vatsal Gupta</a>,<a href="https://www.linkedin.com/in/pranshu-pandya/">Pranshu Pandya</a>,  <a href="https://vgupta123.github.io/">Vivek Gupta</a> and <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a>.</p>
+      <h2>
+      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citation</h3>
+      <p>Feel free to cite our paper as below.</p>
+      <pre><code></code></pre>
+      <footer class="site-footer">
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman</a> theme by <a href="https://github.com/jasonlong">jasonlong</a>.</span>
+      </footer>
+
+    </section>
+
+  </body>
 </html>
