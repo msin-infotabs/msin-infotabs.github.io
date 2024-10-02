@@ -1,108 +1,1026 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Multi-Set Inoculation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/cayman.css">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Multi-Set Inoculation</h1>
-      <h2 class="project-tagline"> Assessing Model Robustness Across Multiple
-        Challenge Sets</h2>
-      <a href="https://arxiv.org/pdf/2311.08662.pdf" class="btn">Paper</a>
-      <a href="https://github.com/msin-infotabs/multi-set-inoculation" target="_blank" class="btn">Dataset</a>
-      <!-- <a href="https://flowchart-qa-verification.vercel.app/" target="_blank" class="btn">Verification Platform</a> -->
-      <a href="https://github.com/msin-infotabs/multi-set-inoculation" target="_blank" class="btn">Code</a>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Evaluating Concurrent Robustness of Language Models Across Diverse Challenge Sets">
+        <meta name="keywords" content="InfoTabs, Info Tabs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Evaluating Concurrent Robustness of Language Models Across Diverse Challenge Sets</title>
+        <link rel="icon" href="./static/images/msin-removebg-preview.png">
+        <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+        <link rel="stylesheet" href="./static/css/bulma.min.css">
+        <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+        <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+        <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+        <link rel="stylesheet" href="./static/css/index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script defer src="./static/js/fontawesome.all.min.js"></script>
+        <script src="./static/js/bulma-carousel.min.js"></script>
+        <script src="./static/js/bulma-slider.min.js"></script>
+        <script src="./static/js/explorer-index.js"></script>
+        <script src="./data/results/output_folders.js" defer></script>
+        <script src="./data/results/model_scores.js" defer></script>
+        <script src="./visualizer/data/data_public.js" defer></script>
+    </head>
+    <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a
+                    role="button"
+                    class="navbar-burger"
+                    aria-label="menu"
+                    aria-expanded="false"
+                >
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+        </nav>
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h1 class="title is-1 publication-title is-bold">
+                                <img src="static/images/msin-removebg-preview.png" style="width:1em;vertical-align: middle" alt="Logo">
+                                <span class="infotabs" style="vertical-align: middle">Evaluating Concurrent Robustness of Language Models Across Diverse Challenge Sets</span>
+                            </h1>
+                            <div class="is-size-5 publication-authors">
+                                <span class="author-block">
+                                    <a href="https://www.linkedin.com/in/vatsal-gupta-iitg/">Vatsal Gupta</a>
+                                    <sup style="color:#6fbf73;">1</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="https://www.linkedin.com/in/pranshu-pandya/">Pranshu Pandya</a>
+                                    <sup style="color:#6fbf73;">1</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="https://tushaarkataria.github.io/">Tushar Kataria</a>
+                                    <sup style="color:#ed4b82;">2</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="https://vgupta123.github.io/">Vivek Gupta</a>
+                                    <sup style="color:#ffac33">3</sup>
+                                    ,
+                                </span>
+                                <span class="author-block">
+                                    <a href="https://chunyuan.li/">Dan Roth</a>
+                                    <sup style="color:#ffac33">3</sup>
+                                    ,
+                                </span>
+                            </div>
+                            <div class="is-size-5 publication-authors">
+                                <span class="author-block">
+                                    <sup style="color:#6fbf73;">1</sup>
+                                    Indian Institute of Technology-Guwahati,
+                                </span>
+                                <br>
+                                <span class="author-block">
+                                    <sup style="color:#ed4b82">2</sup>
+                                    University of Utah,
+                                </span>
+                                <span class="author-block">
+                                    <sup style="color:#ffac33">3</sup>
+                                    University of Pennsylvania
+                                </span>
+                                <br>
+                                <span class="paper-block">
+                                    <b style="color:#f41c1c">EMNLP 2024 Main</b>
+                                </span>
+                            </div>
+                            <div class="column has-text-centered">
+                                <div class="publication-links">
+                                    <span class="link-block">
+                                        <a href="https://arxiv.org/pdf/2311.08662" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </span>
+                                            <span>Paper</span>
+                                        </a>
+                                    </span>
+                                    <span class="link-block">
+                                        <a href="https://arxiv.org/abs/2311.08662" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="ai ai-arxiv"></i>
+                                            </span>
+                                            <span>arXiv</span>
+                                        </a>
+                                    </span>
+                                    <!-- Code Link. -->
+                                    <span class="link-block">
+                                        <a href="https://github.com/msin-infotabs/multi-set-inoculation" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="fab fa-github"></i>
+                                            </span>
+                                            <span>Code</span>
+                                        </a>
+                                    </span>
+                                    <!-- Dataset Link. -->
+                                    <span class="link-block">
+                                        <a href="" class="external-link button is-normal is-rounded is-dark">
+                                            <!-- <span class="icon">
+                                                <p style="font-size:18px">🤗</p>
+                                            </span> -->
+                                            <span>Dataset</span>
+                                        </a>
+                                    </span>
+                                    <!-- Twitter Link. -->
+                                    <!-- <span class="link-block">
+                                        <a href="" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <p style="font-size:18px">🌐</p>
+                                            </span>
+                                            <span>Twitter</span>
+                                        </a>
+                                    </span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+                <div class="columns is-centered m-6">
+                    <div class="column is-full has-text-centered content">
+                        <div id="results-carousel" class="carousel results-carousel">
+                            <div class="box m-5">
+                                <div class="content has-text-centered">
+                                    <img src="static/images/thought-flow.svg" alt="geometric reasoning" width="84%">
+                                    <p>
+                                        <b>
+                                            <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                                            Multi-Set Inoculation Framework
+                                        </b>
+                                        <br>
+                                        High-level flowchart describing the proposed frameworks for Pre-Trained Language Models (via fine-tuning) and Large Language Models (via prompt designing) on the pertrubed version of the
+                                        <span class="infotabs">InfoTabs</span>
+                                        dataset
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box m-5">
+                                <div class="content has-text-centered">
+                                    <style>
+                                      
+                                      .content-table {
+                                        border-collapse: collapse;
+                                        margin: 25px 0;
+                                        font-size: 0.9em;
+                                        min-width: 400px;
+                                        border-radius: 5px 5px 0 0;
+                                        overflow: hidden;
+                                        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+                                      }
+                                      
+                                      .content-table thead tr {
+                                        background-color: #f3e357;
+                                        color: #ffffff;
+                                        text-align: left;
+                                        font-weight: bold;
+                                      }
+                                      
+                                      .content-table th,
+                                      .content-table td {
+                                        padding: 12px 15px;
+                                      }
+                                      
+                                      .content-table tbody tr {
+                                        border-bottom: 1px solid #dddddd;
+                                      }
+                                      
+                                      .content-table tbody tr:nth-of-type(even) {
+                                        background-color: #f3f3f3;
+                                      }
+                                      
+                                      .content-table tbody tr:last-of-type {
+                                        border-bottom: 2px solid #f3e357;
+                                      }
+                                      
+                                      .content-table tbody tr.active-row {
+                                        font-weight: bold;
+                                        color: #f3e357;
+                                      }
+                                    </style>
+                                    <table class="content-table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">
+                                                    <center>Case Closed</center>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Written</td>
+                                                <td>
+                                                    <b>Takahiro Arai</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Publish</td>
+                                                <td>
+                                                    <b>Shogakukan</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Eng. Publish</td>
+                                                <td>
+                                                    <b>SG. Shogakukan Asia</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Demographic</td>
+                                                <td>
+                                                    <b>Shonen</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Magazine</td>
+                                                <td>
+                                                    <b>Weekly Shonen Sunday</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Orig.Run</td>
+                                                <td>
+                                                    <b>Mat 9,2018 - present</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>Volumes</td>
+                                                <td>
+                                                    <b>2</b>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <center>
+                                        <p>
+                                            <strong>
+                                                H
+                                                <sub>1</sub>
+                                                :
+                                            </strong>
+                                            Takahiro Arai wrote
+                                            <em>‘Case Closed’</em>
+                                            comic series.
+                                            <strong>
+                                                <span style="color:#90ee90 !important;">(Entailment)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H'
+                                                <sub>1</sub>
+                                                :
+                                            </strong>
+                                            Takahiro Arai wotte
+                                            <em>‘Case Closed’</em>
+                                            comci series.
+                                            <strong>
+                                                <span style="color:#90ee90 !important;">(Entailment)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H
+                                                <sub>2</sub>
+                                                :
+                                            </strong>
+                                            <em>‘Case Closed’</em>
+                                            is a long-term comic series.
+                                            <strong>
+                                                <span style="color:#90ee90 !important;">(Entailment)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H'
+                                                <sub>2</sub>
+                                                :
+                                            </strong>
+                                            <em>‘Case Closed’</em>
+                                            isn’t a long-term comic series.
+                                            <strong>
+                                                <span style="color:#f08080 !important;">(Contradiction)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H
+                                                <sub>3</sub>
+                                                :
+                                            </strong>
+                                            <em>‘Case Closed’</em>
+                                            became the anime Detective Conan.
+                                            <strong>
+                                                <span style="color:gray !important;">(Neutral)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H'
+                                                <sub>3</sub>
+                                                :
+                                            </strong>
+                                            Detective Conan is
+                                            <em>‘Case Closed’</em>
+                                            anime version.
+                                            <strong>
+                                                <span style="color:gray !important;">(Neutral)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H
+                                                <sub>4</sub>
+                                                :
+                                            </strong>
+                                            <em>‘Case Closed’</em>
+                                            has run over 5 years.
+                                            <strong>
+                                                <span style="color:#90ee90 !important;">(Entailment)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H'
+                                                <sub>4</sub>
+                                                :
+                                            </strong>
+                                            <em>‘Case Closed’</em>
+                                            has run over 10 years.
+                                            <strong>
+                                                <span style="color:#f08080 !important;">(Contradiction)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H
+                                                <sub>5</sub>
+                                                :
+                                            </strong>
+                                            Shogakukan Asia published
+                                            <em>‘Case Closed’</em>
+                                            (Eng.).
+                                            <strong>
+                                                <span style="color:#90ee90 !important;">(Entailment)</span>
+                                            </strong>
+                                            <br>
+                                            <strong>
+                                                H'
+                                                <sub>5</sub>
+                                                :
+                                            </strong>
+                                            Shogakukan UK published
+                                            <em>‘Case Closed’</em>
+                                            (Eng.).
+                                            <strong>
+                                                <span style="color:#f08080 !important;">(Contradiction)</span>
+                                            </strong>
+                                            <br>
+                                        </p>
+                                    </center>
+                                </p>
+                                <b>
+                                    An example of tabular premise and hypotheses from
+                                    <span class="infotabs">InfoTabs</span>
+                                    dataset
+                                </b>
+                                <br>
+                                Original hypotheses (H
+                                <sub>1</sub>
+                                ,H
+                                <sub>2</sub>
+                                ,H
+                                <sub>3</sub>
+                                ,H
+                                <sub>4</sub>
+                                ,H
+                                <sub>5</sub>
+                                ) and their corresponding perturbed hypotheses (H'
+                                <sub>1</sub>
+                                ,H'
+                                <sub>2</sub>
+                                ,H'
+                                <sub>3</sub>
+                                ,H'
+                                <sub>4</sub>
+                                ,H'
+                                <sub>5</sub>
+                                ) representing character,negation,paraphrasing,numeric and location perturbations respectively. Labelled as
+                                <strong>
+                                    <span style="color:#90ee90 !important;">Entailment</span>
+                                </strong>
+                                <strong>
+                                    <span style="color:#f08080 !important;">Contradiction</span>
+                                </strong>
+                                or
+                                <strong>
+                                    <span style="color:gray !important;">Neutral</span>
+                                </strong>
+                                .
+                                <br>
+                                The bold entries in the first column are the keys, and the corresponding entries in the second column are their values.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container" style="margin-bottom: 2vh;">
+                <!-- Abstract. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">Introduction</h2>
+                        <div class="content has-text-justified">
+                            <p>
+                                <b>Language models (LMs)</b>
+                                , often characterized by their black-box nature, can suffer from hallucinations and exhibit sensitivity to
+                                <b>input perturbations</b>
+                                , raising significant concerns about their trustworthiness.To address these concerns, it is crucial to develop a comprehensive understanding of the
+                                <b>failure modes</b>
+                                of these models and to devise strategies that improve their robustness and reliability. In this study, we introduce the
+                                <b>
+                                    <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                                    Multi-Set Inoculation Framework designed to assess the impact of input perturbations on models of various scales, including both pre-trained models and Large Language Models (LLMs)
+                                </b>
+                                .
+                            </p>
+                            <p>
+                                Through the use of
+                                <b>fine-tuning techniques</b>
+                                , we aim to improve the model's robustness against such perturbations. We also investigate whether exposure to one type of perturbation affects the model’s performance on other types, either positively or negatively. To enhance robustness across multiple perturbations, we propose three distinct
+                                <b>fine-tuning strategies</b>
+                                . Furthermore, we extend our approach to
+                                <b>LLMs</b>
+                                by employing a
+                                <b>Chain of Thought (CoT) prompting method</b>
+                                , augmented with exemplars. We demonstrate the effectiveness of our proposed strategies using the
+                                <b>Tabular-NLI</b>
+                                task, showcasing how a well-trained model can effectively handle diverse input perturbations while maintaining high accuracy on the original dataset.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+        </div>
     </section>
 
-    <section class="main-content">
-      <h1>
-        <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multi-Set Inoculation: Assessing Model Robustness Across Multiple
-        Challenge Sets</h1>
-      
-        <h2>
-          <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2>
+<!-- DATASET SECTION -->
+<section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+        <!-- <h1 class="title is-1 InfoTabs"><img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>InfoTabs Dataset</h1> -->
+        <h1 class="title is-1 InfoTabs">
+            <img src="static/images/msin-removebg-preview.png" style="width:1em;vertical-align: middle" alt="Logo">
+            <span class="infotabs" style="vertical-align: middle">MSIN-Infotabs Dataset</span>
+        </h1>
+    </div>
+</section>
 
-      <p>Language models, given their black-box nature, often exhibit sensitivity to input perturbations, leading to trust issues due to hallucinations. To bolster trust, it’s essential to understand these models’ failure modes and devise
-        strategies to enhance their performance. In this
-        study, we propose a framework to study the
-        effect of input perturbations on language models of different scales, from pre-trained models to large language models (LLMs). We use
-        fine-tuning to train a robust model to perturbations, and we investigate whether exposure
-        to one perturbation improves or degrades the
-        model’s performance on other perturbations.
-        To address multi-perturbation robustness, we
-        suggest three distinct training strategies. We
-        also extend the framework to LLMs via a chain
-        of thought(COT) prompting with exemplars.
-        We instantiate our framework for the TabularNLI task and show that the proposed strategies
-        train the model robust to different perturbations
-        without losing accuracy on a given dataset.</p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered has-text-centered">
+            <!-- <div class="column is-full-width has-text-centered"> -->
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Overview</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        The dataset utilized in this study is <span class="infotabs">InfoTabs</span>, a tabular-NLI dataset introduced by Gupta et al. <span class="infotabs">InfoTabs</span> encompasses a wide range of table domains, categories, and keys, showcasing diverse entity types and structures. Additionally, adversarial perturbations have been applied to <span class="infotabs">InfoTabs</span>, resulting in three test splits: α1 (original test set), α2 (adversarial set), and α3 (zero-shot/out of domain set).<br>
+                        <b>Perturb Challenge Datasets</b> are created incorporating perturbations derived from previous studies, augmented using various tools, along with manual adjustments. Each perturbation targets the hypothesis of an input sample, and challenge sets of up to 1,500 samples per perturbation type are curated. 
+                        To ensure diversity, a selection process is employed when the number of pertinent samples exceeds 1,500. Perturbations are categorized into five types: Character-level (C), Negation-type (N), Numeric (M), Location (L), and Paraphrasing (S).
+                        <br>
+                        <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                        <b>Multi-Set Inoculation Framework</b>
+                        (MSIN)is hence developed to analyse concurrent robustness across these types of perturbations
+                    </p>
+                    <style>
+                                      
+                        .content-table-2 {
+                          border-collapse: collapse;
+                          margin: 25px 0;
+                          font-size: 0.9em;
+                          min-width: 400px;
+                          border-radius: 5px 5px 0 0;
+                          overflow: hidden;
+                          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+                        }
+                        
+                        .content-table-2 thead tr {
+                          background-color: #209ceeb6;
+                          color: #ffffff;
+                          text-align: left;
+                          font-weight: bold;
+                        }
+                        
+                        .content-table-2 th,
+                        .content-table-2 td {
+                          padding: 12px 15px;
+                        }
+                        
+                        .content-table-2 tbody tr {
+                          border-bottom: 1px solid #dddddd;
+                        }
+                        
+                        .content-table-2 tbody tr:nth-of-type(even) {
+                          background-color: #f3f3f3;
+                        }
+                        
+                        .content-table-2 tbody tr:last-of-type {
+                          border-bottom: 2px solid #209ceeb6;
+                        }
+                        
+                        .content-table-2 tbody tr.active-row {
+                          font-weight: bold;
+                          color: #209ceeb6;
+                        }
+                      </style>
+                    <table class="content-table-2">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Short Code
+                                </th>
+                                <th>
+                                    Type
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Char/C</b></td>
+                                <td>Character perturbation</td>
+                                <td>
+                                    Introducing random characters,switching characters, removing a random character, and substituting a random character in the randomly selected word.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Neg/N</b></td>
+                                <td>Negation</td>
+                                <td>
+                                    Takes the negation of the statement and hence transforms entailment into a contradiction by negating the given sentence, keeping neutrals intact.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Num/M</b></td>
+                                <td>Numeric</td>
+                                <td>
+                                    Changes a number within the the statement to another random number.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Loc/L</b></td>
+                                <td>Location</td>
+                                <td>
+                                    modifies the identified locations (countries, cities, and nationalities) in a sentence to another place specified in the location map. The NER model (TextAttack) identifies the location in a given sentence and replaces it with a sampled location from a dictionary. Here, cities are replaced with other cities and similar changes for countries
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Stan/S</b></td>
+                                <td>Paraphrasing</td>
+                                <td>
+                                    paraphrases the given sentences without the loss of meaning using manual paraphrasing and Pegasus model.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-      <h2>
-        <h2 id="user-content-dataset">
-            <a class="anchor" id="header-2" aria-hidden="true" href="#dataset">
-              <span class="octicon octicon-link"></span>
+                        
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="columns is-centered">
+                <div class="column" style="margin-right: -20rem;">
+                    <div class="content has-text-centered">
+                         <img src="static/" alt="data-overview" style="max-width: 50%;">
+                        <p>
+                            Key statistics of 
+                            <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                            <span class="infotabs">InfoTabs</span>
+                            .
+                            <br>
+                        </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content has-text-centered">
+                        <img src="static/images/.png" alt="" style="max-width: 56%;">
+                        <p>
+                            Source dataset distribution of
+                            <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                            <span class="infotabs">InfoTabs</span>
+                            .
+                           
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+            <div class="columns is-centered m-6">
+                <div class="column is-full has-text-centered content">
+                    <h2 class="title is-3">Examples</h2>
+                    <p>
+                        One example for each
+                        <b>type of perturbation anlaysed</b> within the 
+                        <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                        <span class="infotabs">MSIN-InfoTabs</span> dataset.
+                    </p>
+                    <div id="results-carousel" class="carousel results-carousel">
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <img src="static/images/examples/" alt="exemplar" width="60%">
+                                <p>example</p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <img src="static/images/examples/" alt="exemplar" width="60%">
+                                <p>example</p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <img src="static/images/examples/" alt="exemplar" width="60%">
+                                <p>example</p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <img src="static/images/examples/" alt="exemplar" width="60%">
+                                <p>example</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <br>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--Strategies section-->
+<section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+
+        <h1 class="title is-1 InfoTabs">
+            <img src="static/images/msin-removebg-preview.png" style="width:1em;vertical-align: middle" alt="Logo">
+            <span class="infotabs" style="vertical-align: middle">Strategies Proposed for analysis</span>
+        </h1>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-full has-text-centered content">
+
+                <div class="content has-text-justified">
+                    <p>
+                        The study employs Tabular-NLI to evaluate concurrent robusteness on a rather tough task 
+                        and investigates how models like BERT, RoBERTa, GPT-3.5, and others respond to perturbations in natural language inference tasks.
+                    </p>
+                    <p>The study introduces three fine-tuning strategies aimed at improving language model robustness across various input perturbations:</p>
+                    <h3>Fine-tuning Strategies for PLMs (Pre-trained Language Models)</h3>
+                    
+                    <h5>Sequential Fine-Tuning (SEQ)</h5>
+                    <p>In this approach, the language model is fine-tuned on one type of perturbation at a time in a predetermined order. This sequential training can lead to <em>catastrophic forgetting</em>, where the model may lose the knowledge gained from earlier perturbations as it continues training on new ones.</p>
+
+                    <h5>Mixed-Training (MIX)</h5>
+                    <p>This strategy fine-tunes the model on a combined dataset that includes samples from all perturbation types. A fixed number of examples from each perturbation set are selected, ensuring the model is exposed to diverse types of input disturbances during the training process. This approach aims to build a more generalizable model without sacrificing performance in specific perturbation areas.</p>
+
+                    <h5>Dynamic Mixed-Training (DYNMIX)</h5>
+                    <p>Dynamic Mixed-Training builds on the mixed-training approach by adjusting the number of training samples from each perturbation set based on the model’s baseline performance. More challenging perturbations receive more training examples, making this a data-efficient strategy that focuses more heavily on the model’s weaknesses.</p>
+
+                    <h3>Prompting Strategies for LLMs(Large Language Models)</h3>
+
+                    <p>For large language models, we develop similar strategies drawing parallels to the strategies proposed for PLMs we analyze the different structures in prompts while devising the strategies</p>
+
+                    <h5>Zero-Shot Prompting</h5>
+                    <p>The model is provided only the task description without examples or prior knowledge of input perturbations</p>
+                    <h5>Few-Shot with Chain of Thought (CoT) Prompting</h5>
+                    <p>This method includes task examples with reasoning chains, enabling the model to learn and apply structured thinking to perturbation handling</p>
+                    <h5>Perturbation-Aware Prompting</h5>
+                    <p>Prompts explicitly instruct the model about specific perturbations, priming it to anticipate different types of noisy inputs</p>
+                    We hence propose the following techniques to make LLMs more adaptable and resilient to concurrent perturbations
+                    <ul>
+                        <li>
+                          <h5>Original Prompt Zero-Shot (OPZS)</h5>
+                          <p>In the OPZS method, the model is provided only with a task description and no examples. This approach tests the model’s inherent ability to handle input perturbations without prior context or guidance.</p>
+                        </li>
+                        
+                        <li>
+                          <h5>Original Prompt Chain of Thought (OPCOT)</h5>
+                          <p>In the OPCOT approach, the prompt is enriched with a few-shot strategy, offering task examples along with reasoning chains (exemplars). This helps the model improve its reasoning capabilities and better address complex tasks involving perturbations.</p>
+                        </li>
+                      
+                        <li>
+                          <h5>Single Exemplars Multiple Prompts (SEMP)</h5>
+                          <p>SEMP involves creating individual prompts for specific perturbations. Each prompt includes a task description, an explanation of the perturbation, and a corresponding exemplar, helping the model handle specific input changes effectively.</p>
+                        </li>
+                      
+                        <li>
+                          <h5>Multiple Exemplars Single Prompt (MESP)</h5>
+                          <p>MESP combines multiple perturbation types into a single prompt. The model is presented with several examples from different perturbation sets in one prompt, allowing it to generalize across a variety of input changes while balancing between detailed explanations and exemplar diversity.</p>
+                        </li>
+                      </ul>
+                      
+                </div>
+                <div class="content">
+                    <img class="mt-3">
+                        Analysing Language Models 
+                        <b>Sensitivity to Input Perturbations</b><br>
+                        <center><img src="static/images/sensitive.png" style="width:70%"></img></center>
+                        <img src="static/images/msin-removebg-preview.png" style="width:1em;vertical-align: middle" alt="Logo">
+                        <b>Multi-Set Inoculation framework</b>                            
+                    </p>
+                </div>
+                
+
+        </div>
+
+        
+    </div>
+</div>
+</section>
+    <!-- RESULTS SECTION -->
+    <section class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <h1 class="title is-1 InfoTabs">Experiment Results</h1>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="content has-text-justified">
+                <p>The <strong>Analysis</strong> section of the paper presents a comprehensive evaluation of the impact of various fine-tuning strategies on language models when subjected to input perturbations. The findings indicate that <strong>single-set inoculation</strong>, which involves fine-tuning a model on one specific type of perturbation, generally leads to marked improvements in performance for that particular perturbation. For instance, models fine-tuned on negation perturbations exhibited a significant increase in accuracy, with improvements reaching as high as +25 points. However, this method often results in a trade-off; robustness against other types of perturbations diminishes, highlighting the challenge of overfitting to a single perturbation type.</p>
+                <style>
+                    table {
+                        width: 75%;
+                        border-collapse: collapse;
+                        border: 1px solid #209cee;
+                    }
+                    th, td {
+                        border: 1px solid #209cee;
+                        padding: 10px;
+                        text-align: center;
+                    }
+                    .diagonal {
+                        position: relative;
+                        background-color: #209cee; /* Background color for the diagonal cell */
+                        color: white; /* Text color */
+                    }
+                    .diagonal::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: white; /* Color of the diagonal part */
+                        transform: skew(-30deg);
+                        transform-origin: 0 0;
+                        z-index: 1;
+                    }
+                    .diagonal span {
+                        position: relative;
+                        z-index: 2; /* Ensure the text appears above the diagonal */
+                    }
+                </style>
+                <center>
+                <table border="1" class='content-table-2' style="width:75%">
+                    <thead>
+                        <tr>
+                            <th>Train/Test</th> <!--need to fix this @VG -->
+                            <th>&#945;<sub>1</sub></th>
+                            <th>&#945;<sub>2</sub></th>
+                            <th>&#945;<sub>3</sub></th>
+                            <th>char</th>
+                            <th>neg</th>
+                            <th>num</th>
+                            <th>loc</th>
+                            <th>stan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>baseline</td>
+                            <td>72.72</td>
+                            <td>64.83</td>
+                            <td>62.33</td>
+                            <td>57.30</td>
+                            <td>46.90</td>
+                            <td>67.20</td>
+                            <td>70.20</td>
+                            <td>67.10</td>
+                        </tr>
+                        <tr>
+                            <td>char</td>
+                            <td>75.28</td>
+                            <td>63.83</td>
+                            <td>63.33</td>
+                            <td>59.20</td>
+                            <td>43.70</td>
+                            <td>64.30</td>
+                            <td>66.00</td>
+                            <td>68.30</td>
+                        </tr>
+                        <tr>
+                            <td>neg</td>
+                            <td>66.94</td>
+                            <td>64.56</td>
+                            <td>58.06</td>
+                            <td>52.80</td>
+                            <td>71.90</td>
+                            <td>69.60</td>
+                            <td>69.70</td>
+                            <td>62.40</td>
+                        </tr>
+                        <tr>
+                            <td>num</td>
+                            <td>62.06</td>
+                            <td>60.83</td>
+                            <td>52.50</td>
+                            <td>47.30</td>
+                            <td>69.60</td>
+                            <td>85.40</td>
+                            <td>83.00</td>
+                            <td>57.60</td>
+                        </tr>
+                        <tr>
+                            <td>loc</td>
+                            <td>55.78</td>
+                            <td>58.67</td>
+                            <td>49.67</td>
+                            <td>47.40</td>
+                            <td>53.90</td>
+                            <td>84.60</td>
+                            <td>86.10</td>
+                            <td>53.50</td>
+                        </tr>
+                        <tr>
+                            <td>stan</td>
+                            <td>73.56</td>
+                            <td>62.61</td>
+                            <td>60.44</td>
+                            <td>58.30</td>
+                            <td>40.80</td>
+                            <td>70.30</td>
+                            <td>67.80</td>
+                            <td>66.80</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </center>
+                
+                <p>In contrast, the <strong>multi-set inoculation</strong> strategy, particularly through the use of <strong>mixed training (MIX)</strong> and <strong>dynamic mixed training (DYNMIX)</strong>, showcases a more holistic approach to model robustness. The mixed-training strategy integrates samples from various perturbation sets, allowing the model to develop a more generalized understanding of input variations. Dynamic mixed training further enhances this by varying the number of samples drawn from each perturbation based on the model’s baseline performance, thus focusing more on challenging perturbations that require additional training. Results indicate that these strategies consistently outperform <strong>sequential training (SEQ)</strong>, which often leads to catastrophic forgetting, where the model loses previously learned information when exposed to new perturbations.</p>
+
+                <p>Additionally, the analysis emphasizes the performance of large language models (LLMs) such as GPT-3.5 and LLaMA-2, which demonstrate improved accuracy when utilizing few-shot prompting techniques, particularly those that incorporate <strong>Chain of Thought (CoT)</strong> reasoning. The study also notes that prompts designed to be aware of specific perturbations further increase the models’ adaptability to novel input changes. These findings underscore the importance of employing multi-set inoculation techniques and tailored prompting strategies to achieve greater robustness in language models across diverse perturbation scenarios.</p>
+
+                  
+            </div>
+            
+            <div class="columns is-centered m-6">
+                <div class="column is-full has-text-centered" style='width:1150px'>
+                    <h2 class="title is-3">Results on Strategies</h2>
+                
+                    <div id="results-carousel" class="carousel results-carousel">
+                        <div class="box m-5" >
+                            <div class="content has-text-centered">
+                                <iframe src="static/external_html/finetuning_results.html" title="Fine-tuning Results" style="width:120%;height:450px"></iframe>
+                                <p>
+                                    Accuracy scores of primary baselines on the testmini subset (1,000 examples) of
+                                    <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                                    <span class="infotabs">InfoTabs</span>
+                                    .
+                                    <br>
+                                    Both CoT GPT-4 and PoT GPT-4 are augmented with Bard captions and OCR text.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <center>
+                                <iframe src="static/external_html/GPT-3.5mesp.html" title="Fine-tuning Results" style="width:60%;height:530px"></iframe>
+                                <p>
+                                    Accuracy scores of primary baselines on the testmini subset (1,000 examples) of
+                                    <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                                    <span class="infotabs">InfoTabs</span>
+                                    .
+                                    <br>
+                                    Both CoT GPT-4 and PoT GPT-4 are augmented with Bard captions and OCR text.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <iframe src="static/external_html/LLaMA-2-13bmesp.html" title="Fine-tuning Results" style="width:60%;height:530px"></iframe>
+                                <p>
+                                    Accuracy scores of primary baselines on the testmini subset (1,000 examples) of
+                                    <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                                    <span class="infotabs">InfoTabs</span>
+                                    .
+                                    <br>
+                                    Both CoT GPT-4 and PoT GPT-4 are augmented with Bard captions and OCR text.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <iframe src="static/external_html/semp_gpt.html" title="Fine-tuning Results" style="width:50%;height:430px"></iframe>
+                                <p>
+                                    Accuracy scores of primary baselines on the testmini subset (1,000 examples) of
+                                    <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                                    <span class="infotabs">InfoTabs</span>
+                                    .
+                                    <br>
+                                    Both CoT GPT-4 and PoT GPT-4 are augmented with Bard captions and OCR text.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="box m-5">
+                            <div class="content has-text-centered">
+                                <iframe src="static/external_html/semp_llama.html" title="Fine-tuning Results" style="width:60%;height:530px"></iframe>
+                                <p>
+                                    Accuracy scores of primary baselines on the testmini subset (1,000 examples) of
+                                    <img src="static/images/msin-removebg-preview.png" style="width:1.0em;vertical-align: middle" alt="Logo">
+                                    <span class="infotabs">InfoTabs</span>
+                                    .
+                                    <br>
+                                    Both CoT GPT-4 and PoT GPT-4 are augmented with Bard captions and OCR text.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- @PAN TODO: bibtex -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title is-3 has-text-centered">BibTeX</h2>
+            <pre>
+                @misc{gupta2024evaluating,
+                  title={Evaluating Concurrent Robustness of Language Models Across Diverse Challenge Sets},
+                  author={Vatsal Gupta and Pranshu Pandya and Tushar Kataria and Vivek Gupta and Dan Roth},
+                  year={2024},
+                  eprint={2311.08662},
+                  archivePrefix={arXiv},
+                  primaryClass={cs.CL},
+                  url={https://arxiv.org/abs/2311.08662},
+                }
+                </pre>
+        </div>
+    </section>
+    <section>
+        <div class="section" id="org-banners" style="display: flex; width: 100%;">
+            <a href="https://www.iitg.ac.in/" target="_blank" rel="external" style="flex: 1; max-width: 33%; display: flex; justify-content: center;">
+                <img class="center-block org-banner" src="static/images/guw.png" style="width: 100%; height: auto;">
             </a>
-            Dataset
-          </h2>
-          <p>The dataset utilized in this study is <strong>INFOTABS</strong>, a tabular-NLI dataset introduced by Gupta et al. INFOTABS encompasses a wide range of table domains, categories, and keys, showcasing diverse entity types and structures. Additionally, adversarial perturbations have been applied to INFOTABS, resulting in three test splits: <strong>α1</strong> (original test set), <strong>α2</strong> (adversarial set), and <strong>α3</strong> (zero-shot/out of domain set).</p>
-          <p><b>Perturb Challenge Datasets</b> This dataset incorporates perturbations derived from previous studies, augmented using various tools, along with manual adjustments. Each perturbation targets the hypothesis of an input sample, and challenge sets of up to 1,500 samples per perturbation type are curated. To ensure diversity, a selection process is employed when the number of pertinent samples exceeds 1,500. Perturbations are categorized into five types: Character-level (C), Negation-type (N), Numeric (M), Location (L), and Paraphrasing (S).</p>
-          <h3>Complete Dataset : MSIN-INFOTABS</h3>
-          <p>The comprehensive dataset comprises the original INFOTABS dataset and its perturbations.</p>
-          <b>Perturbation Types:</b>
-          <ul>
-            <li>C: Character-level perturbation</li>
-            <li>N: Negation-type perturbation</li>
-            <li>M: Numeric perturbation</li>
-            <li>L: Location perturbation</li>
-            <li>S: Paraphrasing as a perturbation</li>
-          </ul>
-          <h4>For BERT's Models</h4>
-          <p>Q<sub>j</sub> consists of 1,000 examples for testing, and P<sub>j</sub> consists of 500 examples for fine-tuning. The union of all challenge test sets is represented as Q, and the corresponding training set as P.</p>
-          <h4>For LLMs</h4>
-          <p>Evaluations are limited to 300 samples from Q<sub>j</sub>, denoted as R<sub>j</sub> (R<sub>j</sub> ⊂ Q<sub>j</sub>). R<sub>j</sub> comprises premise and perturbed hypothesis pairs, while R'<sub>j</sub> contains the same premise with the original unperturbed hypothesis pairs. Demonstrations for prompts are sampled from training sets P<sub>j</sub> and P'<sub>j</sub>, where P'<sub>j</sub> contains the original unperturbed hypothesis and premise pairs. Testing is conducted on R<sub>j</sub> and R'<sub>j</sub>, where R'<sub>j</sub> comprises the original unperturbed hypothesis and premise pairs for the examples in R<sub>j</sub>.</p>
-          
-          
-        <!-- <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2> -->
-      <p>Examples from our dataset can be viewed <a href="" target="_blank">here</a>.</p>
-        <h2>
-          <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Experimental Results</h2>
-          <img src="figures/sensitivitytoip.png" alt="Flow Diagram explaining strategy" style="width: 80%">
-          <blockquote>
-              <p>The overall experiments are evaluated on PLMs (Pre-trained language models) by simply evaluating on the NLI task. Robustness of PLMs is checked this way.</p> 
-            </blockquote>
-        <p>
-        <img src="figures/flowchart.png" alt="Flowchart explaining working" style="width: 80%">
-        <blockquote>
-            The generic experimental design is highlighted above. Different strategies and experimental designs are adopted for PLMs and LLMs (Pre-trained language models and Large Language Models resp.)
-          </blockquote>
-        </p>
-      <p>Text here need</p>
-
-      <h2>
-        <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>People</h2>
-        <p>This project was created by <a href="https://www.linkedin.com/in/vatsal-gupta-iitg/">Vatsal Gupta</a>,<a href="https://www.linkedin.com/in/pranshu-pandya/"> Pranshu Pandya</a>,<a href='https://tushaarkataria.github.io/'> Tushar Kataria</a>, <a href="https://vgupta123.github.io/">Vivek Gupta</a> and <a href="https://www.cis.upenn.edu/~danroth/">Dan Roth</a>.</p>
-      <h2>
-      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citation</h3>
-      <p>Feel free to cite our paper as below.</p>
-      <pre><code>@misc{gupta2023multiset,
-        title={Multi-Set Inoculation: Assessing Model Robustness Across Multiple Challenge Sets}, 
-        author={Vatsal Gupta and Pranshu Pandya and Tushar Kataria and Vivek Gupta and Dan Roth},
-        year={2023},
-        eprint={2311.08662},
-        archivePrefix={arXiv},
-        primaryClass={cs.CL}
-  }</code></pre>
-      <footer class="site-footer">
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman</a> theme by <a href="https://github.com/jasonlong">jasonlong</a>.</span>
-      </footer>
-
+            <a href="https://www.upenn.edu/" target="_blank" class="ext-link" style="flex: 1; max-width: 33%; display: flex; justify-content: center;">
+                <img class="center-block org-banner" src="static/images/Penn_Logo.avif" style="width: 100%; height: auto;">
+            </a>
+            <a href="https://www.utah.edu/" target="_blank" rel="external" style="flex: 1; max-width: 33%; display: flex; justify-content: center;">
+                <img class="center-block org-banner" src="static/images/utah.png" style="width: 100%; height: auto;">
+            </a>
+        </div>
     </section>
-
-  </body>
+    <footer class="footer">
+        <!-- <div class="container"> -->
+        <div class="content has-text-centered"></div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website is website adapted from
+                        <a href="https://nerfies.github.io/">Nerfies</a>
+                        , licensed under a
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                            Creative
+            Commons Attribution-ShareAlike 4.0 International License
+                        </a>
+                        .
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </footer>
+</body>
 </html>
